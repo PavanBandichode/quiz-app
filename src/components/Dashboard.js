@@ -22,7 +22,7 @@ class Dashboard extends React.Component {
     return (
       <>
         <Header />
-
+        {/* 
         <Category
           category={this.state.category}
           handleCategory={this.handleCategory}
@@ -31,9 +31,26 @@ class Dashboard extends React.Component {
           level={this.state.level}
           handleLevel={this.handleLevel}
           category={this.state.category}
-        />
+        /> */}
         <Routes>
-          <Route path="/quiz/:category/:level" strict element={<QuizHome />} />
+          <Route
+            path="/"
+            exact
+            element={
+              <>
+                <Category
+                  category={this.state.category}
+                  handleCategory={this.handleCategory}
+                />
+                <Level
+                  level={this.state.level}
+                  handleLevel={this.handleLevel}
+                  category={this.state.category}
+                />
+              </>
+            }
+          />
+          <Route path="/quiz/:category/:level" element={<QuizHome />} />
         </Routes>
       </>
     );
